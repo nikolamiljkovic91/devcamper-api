@@ -68,7 +68,7 @@ const BootcampSchema = new mongoose.Schema(
         'Other',
       ],
     },
-    geRating: {
+    averageRating: {
       type: Number,
       min: [1, 'Rating must be at least 1'],
       max: [10, 'Rating must can not be more than 10'],
@@ -97,6 +97,11 @@ const BootcampSchema = new mongoose.Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
     },
   },
   {
